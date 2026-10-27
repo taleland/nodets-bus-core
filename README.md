@@ -271,7 +271,3 @@ Docker is required for integration tests. `npm run test:unit` runs provider test
 The repository follows `taleland/nestjs-auth0`: shared TypeScript configuration, Conventional Commit PR titles, Dependabot, CI, and semantic-release with npm OIDC publishing. `AGENTS.md` is copied unchanged, including its local Conventional Commits specification.
 
 Publishing is disabled until the repository variable `NPM_PUBLISH_ENABLED` is explicitly set to `true`. Before enabling it, approve the initial implementation, choose the package license (currently `UNLICENSED`), and configure npm Trusted Publishing for `taleland/nodets-bus-core`, workflow `publish.yml`, following npm's initial-package setup requirements. The workflow uses Node.js 24 and requires no stored `NPM_TOKEN`. Initial review does not create a release.
-
-## Source
-
-Extracted from `VanguardX-Lab/vg-backend`, `src/packages/nodets-bus-core`, at commit `ce750a74ef950e75e4e84f7a200ad0fbcb73ec28`. Public DI symbols now use the `@taleland/nodets-bus-core` namespace; import the exported symbols instead of constructing the old `@vg/...` keys.

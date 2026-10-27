@@ -2,8 +2,6 @@
 
 NestJS integration for [node-ts bus](https://github.com/node-ts/bus), with named bus instances, transport configuration through dependency injection, and Fastify logging.
 
-**Initial implementation for review. No npm release has been published from this repository.**
-
 ## Requirements
 
 - Node.js 22.13 or newer (CI uses Node.js 24).
@@ -15,13 +13,11 @@ This module reads the Fastify logger from `HttpAdapterHost`. Bootstrap a Nest HT
 
 ## Installation
 
-After the initial release is approved and published:
-
 ```sh
 npm install @taleland/nodets-bus-core @nestjs/common @nestjs/core @nestjs/platform-fastify fastify reflect-metadata @node-ts/bus-core @node-ts/bus-messages @node-ts/bus-rabbitmq
 ```
 
-Until then, build and run the example from this checkout:
+To build and run the example from this checkout:
 
 ```sh
 npm ci
@@ -264,10 +260,14 @@ npm test
 npm pack --dry-run
 ```
 
-Docker is required for integration tests. `npm run test:unit` runs provider tests only; `npm run test:integration` verifies fanout delivery using an isolated RabbitMQ container. Build before either command. The npm tarball contains compiled library code and declarations, README, and changelog; examples and tests stay in the repository.
+Docker is required for integration tests. `npm run test:unit` runs provider tests only; `npm run test:integration` verifies fanout delivery using an isolated RabbitMQ container. Build before either command. The npm tarball contains compiled library code and declarations, README, changelog, and license; examples and tests stay in the repository.
 
-## Release preparation
+## Releases
 
 The repository follows `taleland/nestjs-auth0`: shared TypeScript configuration, Conventional Commit PR titles, Dependabot, CI, and semantic-release with npm OIDC publishing. `AGENTS.md` is copied unchanged, including its local Conventional Commits specification.
 
-Publishing is disabled until the repository variable `NPM_PUBLISH_ENABLED` is explicitly set to `true`. Before enabling it, approve the initial implementation, choose the package license (currently `UNLICENSED`), and configure npm Trusted Publishing for `taleland/nodets-bus-core`, workflow `publish.yml`, following npm's initial-package setup requirements. The workflow uses Node.js 24 and requires no stored `NPM_TOKEN`. Initial review does not create a release.
+Releases from `main` are versioned automatically with semantic-release and Conventional Commits. npm Trusted Publishing is configured for `taleland/nodets-bus-core`, workflow `publish.yml`. The workflow uses Node.js 24 and requires no stored `NPM_TOKEN`. The repository variable `NPM_PUBLISH_ENABLED` must be `true` to run publishing.
+
+## License
+
+[Apache License 2.0](LICENSE).
